@@ -30,13 +30,15 @@ def main():
             menu = Menu(n_instrucciones, tipo_segmentacion)
 
             procesador = Procesador(menu)
-                                
+            print('Resultados de ' + str(n_instrucciones) +\
+                  ' con el tipo ' + str(tipo_segmentacion) +\
+                      str(procesador.resultado))
+                
         elif eleccion == 2:
             print('Muchas gracias')
             
         else:
             print('Ops, ha ocurrido un problema.')
-
 
 if __name__ == '__main__':
     main()
