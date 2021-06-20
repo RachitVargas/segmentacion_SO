@@ -47,12 +47,22 @@ class Procesador():
       tiempo_retro = np.random.randint(10,21)
       return tiempo_retro
   
-  def __proceso_sin_segmentacion(self):
-    pass
+  def act_procesador(self):
+      tiempo_actualizacion = 10
+      return tiempo_actualizacion
+    
+  def __proceso_sin_segmentacion(self, n_instrucciones):
+    cola = []
 
-  def __proceso_segmentacion(self):
-    pass
+  def __proceso_segmentacion(self, n_instrucciones):
+    cola = []
   
   def __modelo(self, n_instrucciones, segmentacion):
       
-      pass
+      resultado = 0
+      if segmentacion == 2:
+          resultado = self.__proceso_segmentacion(n_instrucciones)
+      else:
+          resultado = self.__proceso_sin_segmentacion(n_instrucciones)
+      
+      return resultado
