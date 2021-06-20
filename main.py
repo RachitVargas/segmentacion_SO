@@ -30,9 +30,9 @@ def main():
             menu = Menu(n_instrucciones, tipo_segmentacion)
 
             procesador = Procesador(menu)
-            print('Resultados de ' + str(n_instrucciones) +\
-                  ' con el tipo ' + str(tipo_segmentacion) +\
-                      str(procesador.resultado))
+            print('Resultado de ' + str(n_instrucciones) +\
+                  ' instrucciones con el tipo ' + str(tipo_segmentacion) + ' es: ' +\
+                      str(procesador.resultado) + ' ciclos de reloj')
                 
         elif eleccion == 2:
             print('Muchas gracias')

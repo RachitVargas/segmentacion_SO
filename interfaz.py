@@ -25,7 +25,7 @@ class Interfaz():
         
     def segmentacion():
         print('Elija el tipo de segmentacion:')
-        print('1. Sin Segmentacion \n2. Con Segmentacion')
+        print('1. Con Segmentacion \n2. Sin Segmentacion')
         eleccion = int(input())
-        
+
         return eleccion
