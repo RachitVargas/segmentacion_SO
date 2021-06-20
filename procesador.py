@@ -62,19 +62,19 @@ class Procesador():
       tiempo_total = 0
       for i in range(n_instrucciones):
           acumulador = 0
-          acumulador += self.__fetch()
+          acumulador = self.__fetch()
           cola.append(acumulador)
-          acumulador += self.__acceso_memoria()
+          acumulador = self.__acceso_memoria()
           cola.append(acumulador)
-          acumulador += self.__ejecucion()
+          acumulador = self.__ejecucion()
           cola.append(acumulador)
-          acumulador += self.__retroestricta()
+          acumulador = self.__retroestricta()
           cola.append(acumulador)
-          acumulador += self.__act_procesador()
+          acumulador = self.__act_procesador()
           cola.append(acumulador)
           for j in range(len(bloques)):
               tiempo_total += cola.pop(0)
-      return (tiempo_total / (n_instrucciones*len(bloques)))
+      return (tiempo_total / (n_instrucciones))
         
   def __proceso_segmentacion(self, n_instrucciones):
       pass
