@@ -6,7 +6,6 @@ Created on Sat Jun 19 20:37:46 2021
 @author: antony.vargasulead.ac.cr
 """
 import numpy as np
-from unidad import Unidad
 
 class Procesador():
   
