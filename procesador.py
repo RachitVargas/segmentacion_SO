@@ -6,6 +6,7 @@ Created on Sat Jun 19 20:37:46 2021
 @author: antony.vargasulead.ac.cr
 """
 import numpy as np
+from unidad import Unidad
 
 class Procesador():
   
@@ -57,34 +58,57 @@ class Procesador():
     
   def __proceso_sin_segmentacion(self, n_instrucciones):
       cola = []
-      bloques = ['fetch', 'acceso_memoria', 'ejecucion',
-                 'retroestricta', 'act_procesador']
+      bloques = 5
       tiempo_total = 0
       for i in range(n_instrucciones):
-          acumulador = 0
-          acumulador = self.__fetch()
-          cola.append(acumulador)
-          acumulador = self.__acceso_memoria()
-          cola.append(acumulador)
-          acumulador = self.__ejecucion()
-          cola.append(acumulador)
-          acumulador = self.__retroestricta()
-          cola.append(acumulador)
-          acumulador = self.__act_procesador()
-          cola.append(acumulador)
-          for j in range(len(bloques)):
+          cola.append(self.__fetch())
+          cola.append(self.__acceso_memoria())
+          cola.append(self.__ejecucion())
+          cola.append(self.__retroestricta())
+          cola.append(self.__act_procesador())
+          for j in range(bloques):
               tiempo_total += cola.pop(0)
+      print(tiempo_total)
       return (tiempo_total / (n_instrucciones))
         
   def __proceso_segmentacion(self, n_instrucciones):
-      pass
-  
+      tiempo_total = 0
+      memoria = []
+      
+      unidad_1 = []
+      unidad_2 = []
+      unidad_3 = []      
+      
+      for i in range(n_instrucciones):
+          memoria.append(self.__fetch())
+          memoria.append(self.__acceso_memoria())
+          memoria.append(self.__ejecucion())
+          memoria.append(self.__retroestricta())
+          memoria.append(self.__act_procesador())
+     
+      controlador = 1
+      while len(memoria) != 0:
+          if controlador == 1:
+              unidad_1.append(memoria.pop(0))
+              controlador = 2
+          elif controlador == 2:
+              unidad_2.append(memoria.pop(0))
+              controlador = 3
+          elif controlador == 3:
+              unidad_3.append(memoria.pop(0))
+              controlador = 1
+      tiempo_total = ((sum(unidad_1) + sum(unidad_2) + sum(unidad_3))/3)
+      return (tiempo_total / (n_instrucciones))
+      
+         
   def __modelo(self, n_instrucciones, segmentacion):
       
       resultado = 0
       if segmentacion == 1:
           resultado = self.__proceso_segmentacion(n_instrucciones)
-      else:
+      elif segmentacion == 2:
           resultado = self.__proceso_sin_segmentacion(n_instrucciones)
-      
+      else:
+          print('Ops, ocurrio algun error antes de correr la simunacion.')
+        
       return resultado
