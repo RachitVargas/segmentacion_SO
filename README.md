@@ -1,13 +1,7 @@
-# Resultados del algoritmo de Segmentación vs Sin Segmentación de instrucciones en una CPU
----
-
 ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
+# !Resultados del algoritmo de Segmentación vs Sin Segmentación de instrucciones en una CPU
 ```
+---
 
 1. El algoritmo de 'Segmentación' con 1,000 instrucciones y 3 unidad de procesamiento de instrucciones tardó en promedio 24.116 ciclos de reloj
 2. El algoritmo de 'Sin Segmentación' con 1,000 instrucciones tardó en promedio 73.26 ciclos de reloj
