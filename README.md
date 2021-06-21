@@ -1,5 +1,5 @@
 ```diff
-# !Resultados del algoritmo de Segmentación vs Sin Segmentación de instrucciones en una CPU
+!Resultados del algoritmo de Segmentación vs Sin Segmentación de instrucciones en una CPU
 ```
 ---
 
